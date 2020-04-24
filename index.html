@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Weather App</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Barlow+Condensed&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="src/weather_app.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="card">
+        <div class="card-body">
+          <form>
+            <input
+              id="change-city"
+              class="form-control"
+              type="text"
+              placeholder="Change City"
+              autocomplete="off"
+              autofocus="on"
+            />
+
+            <button id="search-city" type="submit">Search</button>
+
+            <button id="current-location" type="submit">
+              Current Location
+            </button>
+          </form>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-7">
+          <h1 class="city">
+            Lisbon
+          </h1>
+          <div class="generalInfo">
+            <div id="date">
+              Date
+            </div>
+            <div class="info">
+              <strong>Min/Max:</strong> -25/-10C
+              <br />
+              85% Humidity
+              <br />
+              90% Precipitation
+            </div>
+          </div>
+        </div>
+        <div class="col-5">
+          <div class="realTimeInfo">
+            <div class="emoji">❄️</div>
+            <div class="realTemp">
+              <span id="temperature-value">??</span>
+              <span class="units">
+                <a href="#" id="celcius-link">ºC</a> |
+                <a href="#" id="fahrenheit-link">ºF</a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row-col-5">
+        <div class="col">
+          <div class="days">
+            <div class="futureWeather">🌨</div>
+            <div class="futureDays">Mon 23</div>
+            <div class="minMax">
+              -20/-10C
+              <br />
+              80%
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="days">
+            <div class="futureWeather">🌧</div>
+            <div class="futureDays">Tue 24</div>
+            <div class="minMax">
+              30/45C
+              <br />
+              100%
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="days">
+            <div class="futureWeather">☀️</div>
+            <div class="futureDays">Wed 25</div>
+            <div class="minMax">
+              -40/-25C
+              <br />
+              85%
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="days">
+            <div class="futureWeather">🌫</div>
+            <div class="futureDays">Thu 26</div>
+            <div class="minMax">
+              -10/-2C
+              <br />
+              95%
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="days">
+            <div class="futureWeather">😷</div>
+            <div class="futureDays">Fri 27</div>
+            <div class="minMax">
+              18/25C
+              <br />
+              10%
+            </div>
+          </div>
+        </div>
+      </div>
+      <small>*The weather will be shitty... stay at home</small>
+    </div>
+    <script type="text/javascript" src="src/weather_app.js"></script>
+  </body>
+</html>

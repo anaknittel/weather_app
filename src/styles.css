@@ -1,0 +1,94 @@
+.container {
+  background-color: #eeeeee;
+  border-color: #bdbdbd;
+  border-style: solid;
+  border-radius: 5px;
+  margin: 60px auto;
+  font-family: "Roboto", sans-serif;
+}
+
+.card {
+  background-color: #84a9ac;
+  border: #005082;
+  border-style: solid;
+  border-radius: 10px;
+  border-width: 3px;
+  margin: 20px auto 0px auto;
+  font-family: "Barlow Condensed", sans-serif;
+}
+
+#change-city {
+  margin-bottom: 40px;
+  padding: 10px auto;
+  margin: 5px auto 15px auto;
+}
+
+#button {
+  border-radius: 3px;
+}
+
+#date {
+  color: #005082;
+  font-weight: 900;
+  font-size: 20px;
+  text-align: left;
+  padding-bottom: 40px;
+  padding-top: 0px;
+}
+
+.city {
+  color: #b2c21f;
+  font-weight: 900;
+  font-size: 38px;
+  padding-bottom: 0px;
+}
+
+.col-7 {
+  text-align: left;
+  padding: 40px;
+}
+
+.col-5 {
+  text-align: center;
+}
+
+.row .col {
+  text-align: center;
+  padding: 40px;
+}
+
+.emoji {
+  font-size: 80px;
+  padding-top: 60px;
+}
+
+.realTemp {
+  font-size: 24px;
+}
+
+.info {
+  line-height: 30px;
+  font-size: 16px;
+}
+
+.row-col-5 {
+  background-color: lightslategray;
+  border-radius: 5px;
+  column-width: auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.futureWeather {
+  font-size: 40px;
+}
+
+.days {
+  color: #fff;
+  text-align: center;
+  font-size: 12px;
+}
+
+.futureDays {
+  font-weight: 900;
+}
