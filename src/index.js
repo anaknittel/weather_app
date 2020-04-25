@@ -18,12 +18,11 @@ h1.innerHTML = `${week}, ${hour}:${minutes}`;
 
 let units = "metric";
 let apiKey = "d8429a8ebd488a695822e4245ab96df8";
+let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Lisbon&appid=${apiKey}&units=${units}`;
+axios.get(apiUrl).then(realTimeTemperature);
 
 let cityElement = document.querySelector(".city");
 let cityInput = document.querySelector("#change-city");
-
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Lisbon&appid=${apiKey}&units=${units}`;
-axios.get(apiUrl).then(realTimeTemperature);
 
 function newCity(event) {
   event.preventDefault();
@@ -59,18 +58,28 @@ function realTimeTemperature(response) {
   place.innerHTML = response.data.name;
 }
 
-let celciusLink = document.querySelector("#celcius-link");
-celciusLink.addEventListener("click", realTimeTemperature);
-
-function convertion(response) {
-  let currentFahrenheit = document.querySelector("#temperature-value");
-  currentFahrenheit.innerHTML = response.data.main.temp;
+function FahrenheitToCelcius(response) {
+  let celciusDegrees = document.querySelector("#temperature-value");
+  celciusDegrees.innerHTML = response.data.main.temp;
 }
 
-function fahrenheitConvertion() {
+function celciusApi() {
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityElement.innerHTML}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(FahrenheitToCelcius);
+}
+
+let celciusLink = document.querySelector("#celcius-link");
+celciusLink.addEventListener("click", celciusApi);
+
+function celciusToFahrenheit(response) {
+  let fahrenheitDegrees = document.querySelector("#temperature-value");
+  fahrenheitDegrees.innerHTML = response.data.main.temp;
+}
+
+function fahrenheitApi() {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityElement.innerHTML}&appid=${apiKey}&units=imperial`;
-  axios.get(apiUrl).then(convertion);
+  axios.get(apiUrl).then(celciusToFahrenheit);
 }
 
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
-fahrenheitLink.addEventListener("click", fahrenheitConvertion);
+fahrenheitLink.addEventListener("click", fahrenheitApi);
