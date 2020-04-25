@@ -28,14 +28,11 @@ axios.get(apiUrl).then(realTimeTemperature);
 function newCity(event) {
   event.preventDefault();
   cityElement.innerHTML = cityInput.value;
-  console.log(cityElement.innerHTML);
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityElement.innerHTML}&appid=${apiKey}&units=${units}`;
   axios.get(apiUrl).then(realTimeTemperature);
 }
 
 function handlePosition(position) {
-  console.log(position.coords.latitude);
-  console.log(position.coords.longitude);
   let latitude = position.coords.latitude;
   let longitude = position.coords.longitude;
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=${units}`;
@@ -65,10 +62,14 @@ function realTimeTemperature(response) {
 let celciusLink = document.querySelector("#celcius-link");
 celciusLink.addEventListener("click", realTimeTemperature);
 
+function convertion(response) {
+  let currentFahrenheit = document.querySelector("#temperature-value");
+  currentFahrenheit.innerHTML = response.data.main.temp;
+}
+
 function fahrenheitConvertion() {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityElement.innerHTML}&appid=${apiKey}&units=imperial`;
-  axios.get(apiUrl).then(realTimeTemperature);
-  console.log("hi");
+  axios.get(apiUrl).then(convertion);
 }
 
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
