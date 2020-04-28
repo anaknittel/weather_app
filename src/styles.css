@@ -53,6 +53,8 @@ button {
 
 .col-5 {
   text-align: center;
+  margin-top: -30px;
+  margin-bottom: auto;
 }
 
 .row .col {
@@ -84,20 +86,17 @@ button {
   flex-wrap: wrap;
 }
 
-.futureWeather {
-  font-size: 40px;
-}
-
-.days {
-  color: #fff;
-  text-align: center;
-  font-size: 12px;
-}
-
-.futureDays {
-  font-weight: 900;
-}
-
 small {
   padding: 10px;
+}
+
+#temperature-value {
+  font-size: 50px;
+}
+
+.forecast {
+  text-align: center;
+  font-size: 12px;
+  list-style-type: none;
+  //color: white;
 }

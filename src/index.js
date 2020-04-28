@@ -20,6 +20,8 @@ let units = "metric";
 let apiKey = "d8429a8ebd488a695822e4245ab96df8";
 let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Lisbon&appid=${apiKey}&units=${units}`;
 axios.get(apiUrl).then(realTimeTemperature);
+let apiUrlForec = `https://api.openweathermap.org/data/2.5/forecast?q=${cityElement.innerHTML}&appid=${apiKey}&units=imperial`;
+axios.get(apiUrlForec).then(forecastWeather);
 
 let cityElement = document.querySelector(".city");
 let cityInput = document.querySelector("#change-city");
@@ -91,3 +93,5 @@ function fahrenheitApi() {
 
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", fahrenheitApi);
+
+function forecastWeather() {}
