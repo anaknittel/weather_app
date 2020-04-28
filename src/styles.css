@@ -5,26 +5,32 @@
   border-radius: 5px;
   margin: 60px auto;
   font-family: "Roboto", sans-serif;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 .card {
   background-color: #84a9ac;
   border: #005082;
   border-style: solid;
-  border-radius: 10px;
+  border-radius: 5px;
   border-width: 3px;
-  margin: 20px auto 0px auto;
+  max-width: 580px;
+  margin: 20px auto;
   font-family: "Barlow Condensed", sans-serif;
 }
 
 #change-city {
-  margin-bottom: 40px;
-  padding: 10px auto;
-  margin: 5px auto 15px auto;
+  max-width: 540px;
+  margin-bottom: 20px;
 }
 
-#button {
+button {
+  height: 38px;
+  width: 150px;
   border-radius: 3px;
+  margin-left: 30px;
+  display: flex;
 }
 
 #date {
@@ -32,20 +38,17 @@
   font-weight: 900;
   font-size: 20px;
   text-align: left;
-  padding-bottom: 40px;
-  padding-top: 0px;
 }
 
 .city {
   color: #b2c21f;
   font-weight: 900;
   font-size: 38px;
-  padding-bottom: 0px;
 }
 
 .col-7 {
   text-align: left;
-  padding: 40px;
+  padding-left: 30px;
 }
 
 .col-5 {
@@ -69,6 +72,8 @@
 .info {
   line-height: 30px;
   font-size: 16px;
+  list-style-type: none;
+  display: inline;
 }
 
 .row-col-5 {
@@ -91,4 +96,8 @@
 
 .futureDays {
   font-weight: 900;
+}
+
+small {
+  padding: 10px;
 }

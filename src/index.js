@@ -53,14 +53,22 @@ currentLocationButton.addEventListener("click", getCurrentPosition);
 
 function realTimeTemperature(response) {
   let currentCelcius = document.querySelector("#temperature-value");
-  currentCelcius.innerHTML = response.data.main.temp;
+  currentCelcius.innerHTML = Math.round(response.data.main.temp);
   let place = document.querySelector(".city");
   place.innerHTML = response.data.name;
+  let minTempElement = document.querySelector(".min-temp");
+  minTempElement.innerHTML = Math.round(response.data.main.temp_min);
+  let maxTempElement = document.querySelector(".max-temp");
+  maxTempElement.innerHTML = Math.round(response.data.main.temp_max);
+  let humidityElement = document.querySelector(".humidity");
+  humidityElement.innerHTML = Math.round(response.data.main.humidity);
+  let windSpeedElement = document.querySelector(".windSpeed");
+  windSpeedElement.innerHTML = response.data.wind.speed;
 }
 
 function FahrenheitToCelcius(response) {
   let celciusDegrees = document.querySelector("#temperature-value");
-  celciusDegrees.innerHTML = response.data.main.temp;
+  celciusDegrees.innerHTML = Math.round(response.data.main.temp);
 }
 
 function celciusApi() {
@@ -73,7 +81,7 @@ celciusLink.addEventListener("click", celciusApi);
 
 function celciusToFahrenheit(response) {
   let fahrenheitDegrees = document.querySelector("#temperature-value");
-  fahrenheitDegrees.innerHTML = response.data.main.temp;
+  fahrenheitDegrees.innerHTML = Math.round(response.data.main.temp);
 }
 
 function fahrenheitApi() {

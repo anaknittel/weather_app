@@ -27,22 +27,23 @@
     <div class="container">
       <div class="card">
         <div class="card-body">
-          <form>
-            <input
-              id="change-city"
-              class="form-control"
-              type="text"
-              placeholder="Change City"
-              autocomplete="off"
-              autofocus="on"
-            />
-
-            <button id="search-city" type="submit">Search</button>
-
-            <button id="current-location" type="submit">
-              Current Location
-            </button>
-          </form>
+          <div class="row align-items-center">
+            <div class="col-12">
+              <form>
+                <input
+                  id="change-city"
+                  class="form-control"
+                  type="text"
+                  placeholder="Change City"
+                  autocomplete="off"
+                  autofocus="on"
+                />
+            </div>
+            <div class="row">
+              <button id="search-city" type="submit">Search</button>
+              <button id="current-location" type="submit">Current Location</button>
+            </div>
+          </div>
         </div>
       </div>
       <div class="row">
@@ -54,12 +55,12 @@
             <div id="date">
               Date
             </div>
-            <div class="info">
-              <strong>Min/Max:</strong> -25/-10C
-              <br />
-              85% Humidity
-              <br />
-              90% Precipitation
+            <div>
+              <ul class="info">
+                <li><strong>Min/Max: </strong><span class="min-temp"> </span> | <span class="max-temp"></span></li>
+                <li>Humidity: <span class="humidity"></span>%</li>
+                <li>Wind Speed: <span class="windSpeed"></span>km/h</li>
+              </ul>
             </div>
           </div>
         </div>
@@ -133,12 +134,11 @@
           </div>
         </div>
       </div>
-      <small>*The weather will be shitty... stay at home</small>
+      <small> <a href="https://github.com/anaknittel/weather_app" id="github-link">
+        Check my GitHub page!
+      </a>
+      </small>
     </div>
     <script type="text/javascript" src="src/index.js"></script>
   </body>
-
-  <a href="https://github.com/anaknittel/weather_app" id="github-link">
-    Check my GitHub page!
-  </a>
 </html>
