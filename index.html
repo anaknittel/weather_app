@@ -59,18 +59,22 @@
               <ul class="info">
                 <li><strong>Min/Max: </strong><span class="min-temp"> </span> | <span class="max-temp"></span></li>
                 <li>Humidity: <span class="humidity"></span>%</li>
-                <li>Wind Speed: <span class="windSpeed"></span>km/h</li>
+                <li>Wind Speed: <span class="windSpeed"></span>m/s</li>
               </ul>
             </div>
           </div>
         </div>
         <div class="col-5">
           <div class="realTimeInfo">
-            <div class="emoji">☀️</div>
-            <div class="realTemp">
+            <img
+              src="http://openweathermap.org/img/wn/10d@2x.png"  
+              alt="Cloudy"
+              id="icon"
+              class="float-left" />
+            <div id="realTemp" class="float-left">
               <span id="temperature-value"></span>
               <span class="units">
-                <a href="#" id="celcius-link">ºC</a> |
+                <a href="#" id="celcius-link" class="active">ºC</a> |
                 <a href="#" id="fahrenheit-link">ºF</a>
               </span>
             </div>
@@ -85,41 +89,7 @@
               <li class="futureDays">Mon 23</li>
               <li class="futureTemp">-20/-10C</li>
               <li class="futureHumid"></li>80%
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="days">
-            <ul class="forecast">
-              <li class="futureWeather">☀️</li>
-              <li class="futureDays">Mon 23</li>
-              <li class="futureTemp">-20/-10C</li>
-              <li class="futureHumid"></li>80%
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="days">
-            <ul class="forecast">
-              <li class="futureWeather">☀️</li>
-              <li class="futureDays">Mon 23</li>
-              <li class="futureTemp">-20/-10C</li>
-              <li class="futureHumid"></li>80%
             </ul>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="days">
-            <ul class="forecast">
-              <li class="futureWeather">☀️</li>
-              <li class="futureDays">Mon 23</li>
-              <li class="futureTemp">-20/-10C</li>
-              <li class="futureHumid"></li>80%
-            </ul>
-            </div>
           </div>
         </div>
         <div class="col">
@@ -132,6 +102,37 @@
             </ul>
           </div>
         </div>
+        <div class="col">
+          <div class="days">
+            <ul class="forecast">
+              <li class="futureWeather">☀️</li>
+              <li class="futureDays">Mon 23</li>
+              <li class="futureTemp">-20/-10C</li>
+              <li class="futureHumid"></li>80%
+            </ul>
+          </div>
+        </div>
+        <div class="col">
+          <div class="days">
+            <ul class="forecast">
+              <li class="futureWeather">☀️</li>
+              <li class="futureDays">Mon 23</li>
+              <li class="futureTemp">-20/-10C</li>
+              <li class="futureHumid"></li>80%
+            </ul>
+          </div>
+        </div>
+        <div class="col">
+          <div class="days">
+            <ul class="forecast">
+              <li class="futureWeather">☀️</li>
+              <li class="futureDays">Mon 23</li>
+              <li class="futureTemp">-20/-10C</li>
+              <li class="futureHumid"></li>80%
+            </ul>
+          </div>
+        </div>
+
       </div>
       <small> <a href="https://github.com/anaknittel/weather_app" id="github-link">
         Check my GitHub page!

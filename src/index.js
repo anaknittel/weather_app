@@ -20,7 +20,7 @@ let units = "metric";
 let apiKey = "d8429a8ebd488a695822e4245ab96df8";
 let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Lisbon&appid=${apiKey}&units=${units}`;
 axios.get(apiUrl).then(realTimeTemperature);
-let apiUrlForec = `https://api.openweathermap.org/data/2.5/forecast?q=${cityElement.innerHTML}&appid=${apiKey}&units=imperial`;
+let apiUrlForec = `https://api.openweathermap.org/data/2.5/forecast?q=Lisbon&appid=${apiKey}&units=imperial`;
 axios.get(apiUrlForec).then(forecastWeather);
 
 let cityElement = document.querySelector(".city");
@@ -66,11 +66,23 @@ function realTimeTemperature(response) {
   humidityElement.innerHTML = Math.round(response.data.main.humidity);
   let windSpeedElement = document.querySelector(".windSpeed");
   windSpeedElement.innerHTML = response.data.wind.speed;
+  let iconElement = document.querySelector("#icon");
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconElement.setAttribute("alt", response.data.weather[0].description);
+
+  console.log(response.data);
+  console.log(response.data.weather[0].icon);
+  console.log(response.data.weather[0].description);
 }
 
 function FahrenheitToCelcius(response) {
   let celciusDegrees = document.querySelector("#temperature-value");
   celciusDegrees.innerHTML = Math.round(response.data.main.temp);
+  celciusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
 }
 
 function celciusApi() {
@@ -84,6 +96,8 @@ celciusLink.addEventListener("click", celciusApi);
 function celciusToFahrenheit(response) {
   let fahrenheitDegrees = document.querySelector("#temperature-value");
   fahrenheitDegrees.innerHTML = Math.round(response.data.main.temp);
+  celciusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
 }
 
 function fahrenheitApi() {
@@ -94,4 +108,6 @@ function fahrenheitApi() {
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", fahrenheitApi);
 
-function forecastWeather() {}
+function forecastWeather() {
+  alert("hi");
+}

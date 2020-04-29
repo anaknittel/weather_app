@@ -1,5 +1,5 @@
 .container {
-  background-color: #eeeeee;
+  background-color: #ffffff;
   border-color: #bdbdbd;
   border-style: solid;
   border-radius: 5px;
@@ -53,29 +53,25 @@ button {
 
 .col-5 {
   text-align: center;
-  margin-top: -30px;
+  margin-top: 0px;
   margin-bottom: auto;
 }
 
-.row .col {
-  text-align: center;
-  padding: 40px;
+img {
+  display: block;
+  height: 135px;
+  position: relative;
+  top: 15px;
+  left: 20px;
 }
 
-.emoji {
-  font-size: 80px;
-  padding-top: 60px;
-}
-
-.realTemp {
-  font-size: 24px;
-}
 
 .info {
   line-height: 30px;
   font-size: 16px;
   list-style-type: none;
   display: inline;
+  padding-bottom: 20px;
 }
 
 .row-col-5 {
@@ -84,6 +80,12 @@ button {
   column-width: auto;
   display: flex;
   flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.col {
+  align-items: center;
+  margin-left: -35px;
 }
 
 small {
@@ -92,6 +94,16 @@ small {
 
 #temperature-value {
   font-size: 50px;
+  position: relative;
+  top: 0px;
+  left: 37px;
+}
+
+.units {
+  position: relative;
+  top: -25px;
+  left: 37px;
+  font-size: 16px;
 }
 
 .forecast {
@@ -99,4 +111,14 @@ small {
   font-size: 12px;
   list-style-type: none;
   //color: white;
+}
+
+.realTimeInfo .active {
+  color: rgb(84, 84, 84);
+  cursor: default;
+  text-decoration: none;
+}
+
+//.realTimeInfo .active.hover {
+  text-decoration: none;
 }
