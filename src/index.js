@@ -1,27 +1,40 @@
-let now = new Date();
+function formatDate(timestamp) {
+  let date = new Date(timestamp);
 
-let weeks = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wendsday",
-  "Thrusday",
-  "Friday",
-  "Saturday",
-];
-let week = weeks[now.getDay()];
-let hour = now.getHours();
-let minutes = now.getMinutes();
+  let weekDays = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wendsday",
+    "Thrusday",
+    "Friday",
+    "Saturday",
+  ];
 
-let h1 = document.querySelector("#date");
-h1.innerHTML = `${week}, ${hour}:${minutes}`;
+  let days = weekDays[date.getDay()];
+  return `${days}, ${formatHours(timestamp)}`;
+}
+
+function formatHours(timestamp) {
+  let date = new Date(timestamp);
+  let hours = date.getHours();
+  let minutes = date.getMinutes();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+
+  return `${hours}:${minutes}`;
+}
 
 let units = "metric";
 let apiKey = "d8429a8ebd488a695822e4245ab96df8";
 let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Lisbon&appid=${apiKey}&units=${units}`;
 axios.get(apiUrl).then(realTimeTemperature);
-let apiUrlForec = `https://api.openweathermap.org/data/2.5/forecast?q=Lisbon&appid=${apiKey}&units=imperial`;
-axios.get(apiUrlForec).then(forecastWeather);
+let apiUrlForec = `https://api.openweathermap.org/data/2.5/forecast?q=Lisbon&appid=${apiKey}&units=${units}`;
+axios.get(apiUrlForec).then(updateForecastApiUrl);
 
 let cityElement = document.querySelector(".city");
 let cityInput = document.querySelector("#change-city");
@@ -58,6 +71,8 @@ function realTimeTemperature(response) {
   currentCelcius.innerHTML = Math.round(response.data.main.temp);
   let place = document.querySelector(".city");
   place.innerHTML = response.data.name;
+  let dateElement = document.querySelector("#date");
+  dateElement.innerHTML = formatDate(response.data.dt * 1000);
   let minTempElement = document.querySelector(".min-temp");
   minTempElement.innerHTML = Math.round(response.data.main.temp_min);
   let maxTempElement = document.querySelector(".max-temp");
@@ -72,10 +87,6 @@ function realTimeTemperature(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
-
-  console.log(response.data);
-  console.log(response.data.weather[0].icon);
-  console.log(response.data.weather[0].description);
 }
 
 function FahrenheitToCelcius(response) {
@@ -108,6 +119,30 @@ function fahrenheitApi() {
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", fahrenheitApi);
 
-function forecastWeather() {
-  alert("hi");
+function updateForecastApiUrl() {
+  let apiUrlForec = `https://api.openweathermap.org/data/2.5/forecast?q=${cityElement.innerHTML}&appid=${apiKey}&units=${units}`;
+  axios.get(apiUrlForec).then(forecastWeather);
+}
+
+function forecastWeather(response) {
+  let apiUrlForec = `https://api.openweathermap.org/data/2.5/forecast?q=${cityElement.innerHTML}&appid=${apiKey}&units=${units}`;
+  axios.get(apiUrlForec).then(forecastWeather);
+  let forecastElement = document.querySelector("#forecast");
+  forecastElement.innerHTML = null;
+  let forecast = null;
+
+  for (let index = 0; index < 6; index++) {
+    forecast = response.data.list[index];
+    forecastElement.innerHTML += `
+    <div class="col-2">
+      <div>${formatHours(forecast.dt * 1000)}</div>
+      <img
+        src="http://openweathermap.org/img/wn/${
+          forecast.weather[0].icon
+        }@2x.png"
+      />
+      <div class="forecastTemperature">${Math.round(forecast.main.temp)}ºC</div>
+      <div class="forecastHumidity">${forecast.main.humidity}%</div>
+    </div>`;
+  }
 }
