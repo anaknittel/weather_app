@@ -67,8 +67,8 @@ let currentLocationButton = document.querySelector("#current-location");
 currentLocationButton.addEventListener("click", getCurrentPosition);
 
 function realTimeTemperature(response) {
-  let currentCelcius = document.querySelector("#temperature-value");
-  currentCelcius.innerHTML = Math.round(response.data.main.temp);
+  let currentCelsius = document.querySelector("#temperature-value");
+  currentCelsius.innerHTML = Math.round(response.data.main.temp);
   let place = document.querySelector(".city");
   place.innerHTML = response.data.name;
   let dateElement = document.querySelector("#date");
@@ -89,31 +89,31 @@ function realTimeTemperature(response) {
   iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
-function FahrenheitToCelcius(response) {
-  let celciusDegrees = document.querySelector("#temperature-value");
-  celciusDegrees.innerHTML = Math.round(response.data.main.temp);
-  celciusLink.classList.add("active");
+function FahrenheitToCelsius(response) {
+  let celsiusDegrees = document.querySelector("#temperature-value");
+  celsiusDegrees.innerHTML = Math.round(response.data.main.temp);
+  celsiusLink.classList.add("active");
   fahrenheitLink.classList.remove("active");
 }
 
-function celciusApi() {
+function celsiusApi() {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityElement.innerHTML}&appid=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(FahrenheitToCelcius);
+  axios.get(apiUrl).then(FahrenheitToCelsius);
 }
 
-let celciusLink = document.querySelector("#celcius-link");
-celciusLink.addEventListener("click", celciusApi);
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", celsiusApi);
 
-function celciusToFahrenheit(response) {
+function celsiusToFahrenheit(response) {
   let fahrenheitDegrees = document.querySelector("#temperature-value");
   fahrenheitDegrees.innerHTML = Math.round(response.data.main.temp);
-  celciusLink.classList.remove("active");
+  celsiusLink.classList.remove("active");
   fahrenheitLink.classList.add("active");
 }
 
 function fahrenheitApi() {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityElement.innerHTML}&appid=${apiKey}&units=imperial`;
-  axios.get(apiUrl).then(celciusToFahrenheit);
+  axios.get(apiUrl).then(celsiusToFahrenheit);
 }
 
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
