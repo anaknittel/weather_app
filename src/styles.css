@@ -65,7 +65,6 @@ img {
   left: 20px;
 }
 
-
 .info {
   line-height: 30px;
   font-size: 16px;
@@ -80,7 +79,6 @@ img {
   column-width: auto;
   display: flex;
   flex-wrap: wrap;
-  //margin-top: 20px;
   text-align: center;
   font-size: 15px;
   list-style-type: none;
@@ -88,7 +86,7 @@ img {
   margin: 20px auto 10px auto;
 }
 
-#forecast img{
+#forecast img {
   display: block;
   height: 50px;
   position: relative;
@@ -119,13 +117,8 @@ small {
   font-size: 16px;
 }
 
-
 .realTimeInfo .active {
   color: rgb(84, 84, 84);
   cursor: default;
-  text-decoration: none;
-}
-
-//.realTimeInfo .active.hover {
   text-decoration: none;
 }
