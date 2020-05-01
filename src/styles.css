@@ -6,7 +6,7 @@
   margin: 60px auto;
   font-family: "Roboto", sans-serif;
   max-width: 600px;
-  margin: 0 auto;
+  //margin: 0 auto;
 }
 
 .card {
@@ -101,6 +101,20 @@ img {
 
 small {
   padding: 10px;
+  margin-bottom: 20px;
+}
+#github-logo,
+#linkedin-logo,
+#instagram-logo {
+  height: 20px;
+  display: inline;
+  position: relative;
+  top: -2px;
+  left: 15px;
+}
+
+#linkedin-logo {
+  left: 10px;
 }
 
 #temperature-value {

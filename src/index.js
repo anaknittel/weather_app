@@ -30,7 +30,7 @@ function formatHours(timestamp) {
 }
 
 let units = "metric";
-let apiKey = "d8429a8ebd488a695822e4245ab96df8";
+let apiKey = "303348dda1fca23adb810a6d9945efb5";
 let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Lisbon&appid=${apiKey}&units=${units}`;
 axios.get(apiUrl).then(realTimeTemperature);
 let apiUrlForec = `https://api.openweathermap.org/data/2.5/forecast?q=Lisbon&appid=${apiKey}&units=${units}`;
